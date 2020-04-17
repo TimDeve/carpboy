@@ -1,0 +1,12 @@
+(load "Macros.carp")
+
+(relative-include "arduboy.h")
+
+(defmodule Arduboy
+  (register begin (Fn [] ()) "ArduboyBegin")
+  (register clear (Fn [] ()) "ArduboyClear")
+  (register next-frame? (Fn [] Bool) "ArduboyNextFrame")
+  (register set-cursor (Fn [Int Int] ()) "ArduboySetCursor")
+  (register print (Fn [&String] ()) "ArduboyPrint")
+  (register display (Fn [] ()) "ArduboyDisplay"))
+

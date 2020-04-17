@@ -1,0 +1,22 @@
+(system-include "Arduino.h")
+(system-include "core.h")
+
+(load "Bool.carp")
+
+(load "config.carp")
+(load "src/lib/arduboy.carp")
+
+(sig setup (Fn [] ()))
+(defn setup []
+  (do
+   (Arduboy.begin)
+   (while (not (Arduboy.next-frame?)) ())
+   (Arduboy.clear)
+   (Arduboy.set-cursor 4 9)
+   (Arduboy.print "Hello, Carp!")
+   (Arduboy.display)))
+
+; Don't need loop but it needs to be declared to make Arduino happy
+(sig loop (Fn [] ()))
+(defn loop [] ())
+
