@@ -1,0 +1,11 @@
+(load "lib/arduboy.carp")
+
+(relative-include "assets.h")
+
+(register-type Assets [w Int, h Int, data (Ptr Char)])
+
+(defmodule Assets
+  (defn draw [x y asset]
+    (Arduboy.draw-bitmap x y @(Assets.data asset) @(Assets.w asset) @(Assets.h asset)))
+
+  (register img Assets "Assets_img"))

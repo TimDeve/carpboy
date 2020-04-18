@@ -5,18 +5,16 @@
 (load "src/lib/arduboy.carp")
 (load "src/lib/sys.carp")
 
-(load "src/assets/assets.carp")
+(load "src/assets.carp")
 
 (use Arduboy)
 
 (sig draw-img (Fn [] ()))
 (defn draw-img []
- (draw-bitmap
+ (Assets.draw
    (Long.to-int (Sys.random-between 10l 70l))
    20
-   Assets.img
-   60
-   30))
+   &Assets.img))
 
 (sig setup (Fn [] ()))
 (defn setup []
