@@ -1,0 +1,9 @@
+(relative-include "sys.h")
+
+(defmodule Sys
+  (register delay (Fn [Int] ()) "delay")
+  (register millis (Fn [] Long) "millis")
+  (register micros (Fn [] Long) "micros")
+  (register random-between (Fn [Long Long] Long) "Sys_randomBetween")
+  (register seed-random (Fn [Long] ()) "Sys_randomSeed"))
+

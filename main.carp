@@ -1,20 +1,37 @@
 (system-include "Arduino.h")
-(system-include "core.h")
-
-(load "Bool.carp")
 
 (load "config.carp")
+(load "src/lib/light-core.carp")
 (load "src/lib/arduboy.carp")
+(load "src/lib/sys.carp")
+
+(load "src/assets/assets.carp")
+
+(use Arduboy)
+
+(sig draw-img (Fn [] ()))
+(defn draw-img []
+ (draw-bitmap
+   (Long.to-int (Sys.random-between 10l 70l))
+   20
+   Assets.img
+   60
+   30))
 
 (sig setup (Fn [] ()))
 (defn setup []
   (do
-   (Arduboy.begin)
-   (while (not (Arduboy.next-frame?)) ())
-   (Arduboy.clear)
-   (Arduboy.set-cursor 4 9)
-   (Arduboy.print "Hello, Carp!")
-   (Arduboy.display)))
+   (begin-no-logo)
+   (Sys.seed-random (gen-rand-seed))
+   (while true
+     (do
+       (Sys.delay 1000)
+       (while (not (next-frame?)) ())
+       (clear)
+       (set-cursor 4 9)
+       (print "Hello, Carp!")
+       (draw-img)
+       (display)))))
 
 ; Don't need loop but it needs to be declared to make Arduino happy
 (sig loop (Fn [] ()))

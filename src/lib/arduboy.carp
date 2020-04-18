@@ -1,12 +1,14 @@
-(load "Macros.carp")
-
 (relative-include "arduboy.h")
 
 (defmodule Arduboy
-  (register begin (Fn [] ()) "ArduboyBegin")
-  (register clear (Fn [] ()) "ArduboyClear")
-  (register next-frame? (Fn [] Bool) "ArduboyNextFrame")
-  (register set-cursor (Fn [Int Int] ()) "ArduboySetCursor")
-  (register print (Fn [&String] ()) "ArduboyPrint")
-  (register display (Fn [] ()) "ArduboyDisplay"))
-
+  (register begin (Fn [] ()) "Arduboy_begin")
+  (register begin-no-logo (Fn [] ()) "Arduboy_beginNoLogo")
+  (register clear (Fn [] ()) "Arduboy_clear")
+  (register next-frame? (Fn [] Bool) "Arduboy_nextFrame")
+  (register set-cursor (Fn [Int Int] ()) "Arduboy_setCursor")
+  (register print (Fn [&String] ()) "Arduboy_print")
+  (register display (Fn [] ()) "Arduboy_display")
+  (register draw-rect (Fn [Int Int Int Int Bool] ()) "Arduboy_drawRect")
+  (register fill-rect (Fn [Int Int Int Int Bool] ()) "Arduboy_fillRect")
+  (register gen-rand-seed (Fn [] Long) "Arduboy_genRandSeed")
+  (register draw-bitmap (Fn [Int Int (Ptr Char) Int Int] ()) "Arduboy_drawBitmap"))

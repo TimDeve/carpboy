@@ -1,0 +1,4 @@
+(relative-include "img.h")
+
+(defmodule Assets
+  (register img (Ptr Char) "Assets_img"))
