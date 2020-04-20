@@ -9,3 +9,4 @@
     (Arduboy.draw-bitmap x y @(Assets.data asset) @(Assets.w asset) @(Assets.h asset)))
 
   (register img Assets "Assets_img"))
+
